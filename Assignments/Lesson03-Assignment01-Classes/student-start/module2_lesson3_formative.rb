@@ -18,14 +18,19 @@ class Person
   def self.search(last_name)
     #accept a `last_name` parameter
     #search the `people` class attribute for instances with the same `last_name`
-    results = []
-    @@people.each do |p|
-      if p.last_name == last_name
-        results << p
-      end
-    end 
+    # ---
+    #My way below, too much code
+    #results = []
+    #@@people.each do |p|
+    #  if p.last_name == last_name
+    #    results << p
+    #  end
+    #end 
     #return a collection of matching instances
-    results
+    #results
+    # ---
+    # A one line way of doing it
+    @@people.select {|p| p.last_name == last_name}
   end
 
   #have a `to_s` method to return a formatted string of the person's name
